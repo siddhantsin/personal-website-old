@@ -1,24 +1,19 @@
 import "./style.css";
-import * as THREE from "three";
 import init from "./init";
+import initEventListeners from "./eventListeners";
+import { putName } from "./models/name";
+import putLight from "./models/light";
 
-// Initialized CAMERA, RENDERER, SCENE
-init();
+init(); // Initializes CAMERA, RENDERER, SCENE
+initEventListeners();
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshBasicMaterial({
-  color: "orange",
-  wireframe: true,
-});
-const torus = new THREE.Mesh(geometry, material);
-
-SCENE.add(torus);
+putName();
+putLight();
 
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.y += 0.002;
-
+  CONTROLS.update();
   RENDERER.render(SCENE, CAMERA);
 }
 

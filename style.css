@@ -5,7 +5,7 @@ canvas {
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.6);
+  --dark-bg: rgba(15, 15, 15, 0.7);
   --spacing: 350px;
 
   font-family: brandon-grotesque, sans-serif;
@@ -16,11 +16,7 @@ canvas {
 main {
   color: white;
   z-index: 1;
-  position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-
+  /*width: 100%;*/
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -40,6 +36,5 @@ section {
   background: var(--dark-bg);
   font-size: 1.25rem;
   line-height: 1.5;
-  vertical-align: middle;
   text-align: justify;
 }

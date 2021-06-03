@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import * as dat from "dat.gui";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default function init() {
   // Scene
@@ -12,6 +14,8 @@ export default function init() {
     1000
   );
   window.CAMERA.position.setZ(30);
+  window.CAMERA.position.setX(30);
+  window.CAMERA.position.setY(30);
 
   // Renderer
   window.RENDERER = new THREE.WebGLRenderer({
@@ -20,14 +24,15 @@ export default function init() {
   window.RENDERER.setPixelRatio(window.devicePixelRatio);
   window.RENDERER.setSize(window.innerWidth, window.innerHeight);
 
+  // GUI
+  window.GUI = new dat.GUI();
+
+  // Orbit Controls
+  window.CONTROLS = new OrbitControls(
+    window.CAMERA,
+    window.RENDERER.domElement
+  );
+
   // Render the initial scene
   RENDERER.render(SCENE, CAMERA);
-
-  window.addEventListener("resize", onWindowResize, false);
-}
-
-function onWindowResize() {
-  window.CAMERA.aspect = window.innerWidth / window.innerHeight;
-  window.CAMERA.updateProjectionMatrix();
-  window.RENDERER.setSize(window.innerWidth, window.innerHeight);
 }
