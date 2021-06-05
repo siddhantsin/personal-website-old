@@ -3,7 +3,7 @@ import * as THREE from "three";
 export function putBall() {
   const textureLoader = new THREE.TextureLoader();
 
-  const texture = textureLoader.load("/textures/peanut-butter.jpg");
+  const texture = textureLoader.load("textures/peanut-butter.jpg");
   const geometry = new THREE.SphereBufferGeometry(0.5, 64, 64);
 
   const material = new THREE.MeshStandardMaterial({
