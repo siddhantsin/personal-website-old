@@ -1,40 +1,32 @@
-canvas {
-  position: fixed;
+#bg {
+  position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: exclusion;
 }
 
-:root {
-  --dark-bg: rgba(15, 15, 15, 0.7);
-  --spacing: 350px;
-
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 400;
-  font-style: normal;
+body {
+  overflow-x: hidden;
 }
 
-main {
+body {
+  height: 100vh;
+  font-family: "Poppins";
+  background: rgb(15, 15, 15);
+}
+
+h1 {
+  font-size: 8rem;
   color: white;
-  z-index: 1;
-  /*width: 100%;*/
+  text-transform: uppercase;
+}
+
+#header {
+  height: 100vh;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  place-items: center;
 }
 
-h1,
-h2,
-h3,
-blockquote {
-  font-family: elevon, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-section {
-  grid-column: 5 / 9;
-  padding: 1rem;
-  background: var(--dark-bg);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  text-align: justify;
+#blank {
+  height: 100vh;
 }

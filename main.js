@@ -1,20 +1,14 @@
 import "./style.css";
 import init from "./init";
 import initEventListeners from "./eventListeners";
-import { putName } from "./models/name";
+import { putBall } from "./models/ball";
 import putLight from "./models/light";
+import animate from "./animate";
 
 init(); // Initializes CAMERA, RENDERER, SCENE
 initEventListeners();
 
-putName();
+putBall();
 putLight();
-
-function animate() {
-  requestAnimationFrame(animate);
-
-  CONTROLS.update();
-  RENDERER.render(SCENE, CAMERA);
-}
 
 animate();
