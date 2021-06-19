@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import * as dat from "dat.gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import gsap from "gsap";
 
 export default function init() {
   // Global variables
@@ -8,9 +9,12 @@ export default function init() {
   window.MOUSE_Y = 0;
   window.TARGET_X = 0;
   window.TARGET_Y = 0;
+  window.TIMELINE = new gsap.timeline();
+  window.PHONE_RENDERED = false;
 
   // Scene
-  window.SCENE = new THREE.Scene();
+  window.SCENE1 = new THREE.Scene();
+  window.SCENE2 = new THREE.Scene();
 
   // Camera
   window.CAMERA = new THREE.PerspectiveCamera(
@@ -28,6 +32,14 @@ export default function init() {
   });
   window.RENDERER.setPixelRatio(window.devicePixelRatio);
   window.RENDERER.setSize(window.innerWidth, window.innerHeight);
+  
+  window.RENDERER2 = new THREE.WebGLRenderer({
+    canvas: document.querySelector("#bg2"),
+    alpha: true,
+    antialias: true
+  });
+  window.RENDERER2.setPixelRatio(window.devicePixelRatio);
+  window.RENDERER2.setSize(window.innerWidth, window.innerHeight);
 
   // GUI folders
   if (process.env.NODE_ENV === "development") {
@@ -36,6 +48,7 @@ export default function init() {
     window.PURPLE_LIGHT = window.GUI.addFolder("Purple Light");
     window.BLUE_LIGHT = window.GUI.addFolder("Blue Light");
     window.BALL_GUI = window.GUI.addFolder("Ball");
+    window.PHONE_GUI = window.GUI.addFolder("Phone");
   }
 
   // Orbit Controls
@@ -46,6 +59,7 @@ export default function init() {
     );
   }
 
-  // Render the initial scene
-  RENDERER.render(SCENE, CAMERA);
+  // Render the initial scenes
+  RENDERER.render(SCENE1, CAMERA);
+  RENDERER2.render(SCENE2, CAMERA);
 }

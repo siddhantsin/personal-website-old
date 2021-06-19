@@ -15,7 +15,7 @@ export function putBall() {
 
   window.BALL = new THREE.Mesh(geometry, material);
 
-  window.SCENE.add(BALL);
+  window.SCENE1.add(BALL);
 
   if (process.env.NODE_ENV === "development") {
     window.BALL_GUI.add(BALL.position, "x");
