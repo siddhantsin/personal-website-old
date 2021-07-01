@@ -26,16 +26,8 @@ export function putPhone() {
     window.TIMELINE.to(gltf.scene.rotation, { y: 1.58, duration: 1})
     window.TIMELINE.to(gltf.scene.scale, { x: 0.12, y: 0.12, z: 0.12, duration: 1}, "-=1")
     window.TIMELINE.to(gltf.scene.rotation, { y: 0.7, duration: 1})
-    window.TIMELINE.to(gltf.scene.position, { x: 1, duration: 1}, "-=1")
+    window.TIMELINE.to(gltf.scene.position, { x: 1.25, duration: 1}, "-=1")
     window.TIMELINE.to('#intro', { opacity: 1}, "-=1")
-    // Scroll animation
-    window.addEventListener("scroll", onMouseScroll);
-
-    function onMouseScroll() {
-      if (window.scrollY >  ((3 / 4) * window.innerHeight + window.innerHeight) && window.PHONE_RENDERED) {
-          gltf.scene.position.y = (window.scrollY - ((3 / 4) * window.innerHeight + window.innerHeight))  * (0.0005);
-      }
-    }
   });
 }
 

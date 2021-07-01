@@ -1,24 +1,76 @@
-#bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+nav a, nav span{
+  text-decoration:none;
+  color:white;
+  font-size:18px; 
+  display:inline-block; 
+  transition: all 0.5s ease 0s;
+}
+
+nav a {
+  padding: 20px 45px; 
+}
+
+nav span {
+  padding: 20px 0px; 
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a:after {    
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 4px;
+  background: #fff;
+  transition: width 0.3s ease;
+  width: 0;
+}
+
+nav a:hover:after { 
+  width: 100%;
+}
+
+.fixed-section{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   mix-blend-mode: exclusion;
 }
 
+#bg {
+  top: 0;
+}
+
 #bg2 {
-  position: absolute;
-  left: 0;
-  mix-blend-mode: exclusion;
+  top: 100vh;
+}
+
+#bg3 {
+  top: 200vh;
+}
+
+html{
+  scroll-behavior:smooth
 }
 
 body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  height: 100vh;
   font-family: "Poppins";
   background: rgb(15, 15, 15);
+}
+
+canvas {
+  position: absolute;
+  left: 0;
+  mix-blend-mode: exclusion;
 }
 
 h1 {
@@ -34,12 +86,12 @@ h2 {
 }
 
 h3 {
-  font-size: 4rem;
+  font-size: 3rem;
   color: white;
 }
 
 h4 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
   margin: 0;
 }
@@ -56,6 +108,7 @@ h4 {
   height: 100vh;
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 #blank {
@@ -70,4 +123,22 @@ h4 {
   display: grid;
   place-items: center;
   opacity: 0;
+}
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #c33764, #394ae7);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  box-shadow: 0px 0px 0px 100000vh black;
 }

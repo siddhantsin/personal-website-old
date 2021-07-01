@@ -12,9 +12,10 @@ export default function init() {
   window.TIMELINE = new gsap.timeline();
   window.PHONE_RENDERED = false;
 
-  // Scene
+  // Scenes
   window.SCENE1 = new THREE.Scene();
   window.SCENE2 = new THREE.Scene();
+  window.SCENE3 = new THREE.Scene();
 
   // Camera
   window.CAMERA = new THREE.PerspectiveCamera(
@@ -25,7 +26,7 @@ export default function init() {
   );
   window.CAMERA.position.setZ(2);
 
-  // Renderer
+  // Renderers
   window.RENDERER = new THREE.WebGLRenderer({
     canvas: document.querySelector("#bg"),
     alpha: true,
@@ -40,6 +41,14 @@ export default function init() {
   });
   window.RENDERER2.setPixelRatio(window.devicePixelRatio);
   window.RENDERER2.setSize(window.innerWidth, window.innerHeight);
+
+  window.RENDERER3 = new THREE.WebGLRenderer({
+    canvas: document.querySelector("#bg3"),
+    alpha: true,
+    antialias: true
+  });
+  window.RENDERER3.setPixelRatio(window.devicePixelRatio);
+  window.RENDERER3.setSize(window.innerWidth, window.innerHeight);
 
   // GUI folders
   if (process.env.NODE_ENV === "development") {
@@ -62,4 +71,5 @@ export default function init() {
   // Render the initial scenes
   RENDERER.render(SCENE1, CAMERA);
   RENDERER2.render(SCENE2, CAMERA);
+  RENDERER3.render(SCENE3, CAMERA);
 }

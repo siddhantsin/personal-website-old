@@ -20,4 +20,5 @@ export default function animate() {
   }
   window.RENDERER.render(window.SCENE1, window.CAMERA);
   window.RENDERER2.render(window.SCENE2, window.CAMERA);
+  window.RENDERER3.render(window.SCENE3, window.CAMERA);
 }
